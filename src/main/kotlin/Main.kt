@@ -7,4 +7,7 @@ fun main () {
     val bPieces = game.assignPieces(players[1], "white")
     game.applyPieces()
     game.displayBoard()
+    println()
+    game.applyPieces1()
+    game.displayBoard()
 }

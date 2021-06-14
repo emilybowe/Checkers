@@ -23,21 +23,42 @@ class Game(private val rows: Int = 8, private val col: Int = 8, private val piec
         val numberOfPieces = calculatePieces()
         var y = 0
         var x = 0
-        for(i in 0 until numberOfPieces) {
-            for(j in 0 until board.array.size) {
+        for (i in 0 until numberOfPieces) {
+            for (j in 0 until board.array.size) {
                 board.array[x][y] = 3
             }
-            if(y == (board.array.size - 2)) { //0,6
+            if (y == (board.array.size - 2)) { //0,6
                 x = 1
                 y = 1
             } else if (y == (board.array.size - 1)) { //1,7
                 x = 2
                 y = 0
             } else {
-                y +=2
+                y += 2
             }
         }
     }
+
+        fun applyPieces1() {
+            val numberOfPieces = calculatePieces()
+            var y = board.array.size -1
+            var x = board.array.size -1
+            for (i in 0 until numberOfPieces) {
+                for (j in 0 until board.array.size) {
+                    board.array[x][y] = 4
+                }
+                if (y == 1) { //7,1
+                    --x
+                    y = board.array.size - 2
+                } else if (y == 0) { //6,0
+                    --x
+                    y = board.array.size - 1
+                } else {
+                    y -= 2
+                }
+            }
+        }
+
 }
 
     fun move() {
